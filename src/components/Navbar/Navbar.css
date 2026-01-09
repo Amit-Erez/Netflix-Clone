@@ -27,7 +27,7 @@
 }
 
 .navbar-left ul li {
-    cursor: pointer;
+    cursor: not-allowed;
 }
 
 .navbar-right {

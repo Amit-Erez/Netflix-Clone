@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/logo.png";
 import { login, signup } from "../../firebase";
-import netflix_spinner from '../../assets/netflix_spinner.gif'
+import netflix_spinner from "../../assets/netflix_spinner.gif";
 
 const Login = () => {
   const [signState, setSignState] = useState("Sign In");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const user_auth = async (event) => {
     event.preventDefault();
@@ -22,13 +22,21 @@ const Login = () => {
     setLoading(false);
   };
 
-  return (
-    loading? 
+  return loading ? (
     <div className="login-spinner">
       <img src={netflix_spinner} alt="" />
-    </div> :
+    </div>
+  ) : (
     <div className="login">
       <img src={logo} className="login-logo" alt="" />
+      <div
+        className="login-disclaimer">
+        <p>
+          <strong>Disclaimer:</strong> Demo project — not affiliated with
+          Netflix. <br />
+          Do not use real email addresses or passwords.
+        </p>
+      </div>
       <div className="login-form">
         <h1>{signState}</h1>
         <form>
